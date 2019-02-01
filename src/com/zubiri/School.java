@@ -260,16 +260,29 @@ public class School {
 	}
 
 	public void getTeachersByStudent(String name) {
-		
-		for (int i=0;i<getStudent(name).subjectCounter();i++) {
-			for (int j=0;j<teachers.size();j++) {
-				for (int k=0;j<teachers.get(j).subjectCounter();k++) {
-				//	if(getStudent(name).getSubject(i).equals(teachers.get(j).getSubject(k))) {
+
+		for (int i = 0; i < getStudent(name).subjectCounter(); i++) {
+			for (int j = 0; j < teachers.size(); j++) {
+				for (int k = 0; k < teachers.get(j).subjectCounter(); k++) {
+					if (getStudent(name).getSubject(i).equals(teachers.get(j).getSubject(k))) {
 						System.out.println(teachers.get(j).getName());
-					//}
+					}
 				}
 			}
 		}
-
 	}
+	
+	public void getStudentsByTeacher(String name) {
+		for (int i = 0; i < getTeacher(name).subjectCounter(); i++) {
+			for (int j = 0; j < students.size(); j++) {
+				for (int k = 0; k < students.get(j).subjectCounter(); k++) {
+					if (getTeacher(name).getSubject(i).equals(students.get(j).getSubject(k))) {
+						System.out.println(students.get(j).getName());
+					}
+				}
+			}
+		}
+	}
+	
+	
 }

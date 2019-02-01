@@ -160,9 +160,9 @@ public class Student extends Person {
 	 * 
 	 */
 	public boolean addSubject(String newSubject) {
-		subjects.add(newSubject);
-		if (findSubject(newSubject) != -1) {
-
+		
+		if (findSubject(newSubject) == -1) {
+			subjects.add(newSubject);
 			return true;
 		}
 		return false;

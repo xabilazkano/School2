@@ -135,9 +135,9 @@ public class Teacher extends Worker {
 	 * 
 	 */
 	public boolean addSubject(String newSubject) {
-		subjects.add(newSubject);
-		if (findSubject(newSubject) != -1) {
-
+		
+		if (findSubject(newSubject) == -1) {
+			subjects.add(newSubject);
 			return true;
 		}
 		return false;
@@ -182,6 +182,6 @@ public class Teacher extends Worker {
 		return this.subjects.size();
 	}
 	public String getSubject(int index) {
-		return subjects.get(index);
+		return this.subjects.get(index);
 	}
 }
