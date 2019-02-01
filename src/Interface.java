@@ -103,12 +103,22 @@ public class Interface {
 							System.out.println("Name of the student");
 							sc.nextLine();
 							name = sc.nextLine();
-							if (school.findStudentID(name) != -1)
-								System.out.println(school.getStudent(name).checkAbsenses());
-							else
+							if (school.checkStudentAbsenses(name) != -1) {
+								absenses = school.checkStudentAbsenses(name);
+								if (absenses >= 10 && absenses < 20) {
+									System.out.println(
+											"The mark average was reduced %10. Number of absenses: " + absenses);
+								} else if (absenses >= 20) {
+									System.out.println(
+											"The mark average was reduced %20. Number of absenses: " + absenses);
+								} else {
+									System.out.println(
+											"The mark average was not reduced. Number of absenses: " + absenses);
+								}
+							} else
 								System.out.println("Student not found");
 							break;
-							
+
 						case 5:
 							System.out.println("Name of the student");
 							sc.nextLine();
@@ -118,7 +128,7 @@ public class Interface {
 							else
 								System.out.println("Student not found");
 							break;
-						
+
 						case 6:
 							System.out.println("Name of the student");
 							sc.nextLine();
@@ -245,12 +255,18 @@ public class Interface {
 							System.out.println("Name of the teacher");
 							sc.nextLine();
 							name = sc.nextLine();
-							if (school.findTeacherID(name) != -1)
-								System.out.println(school.getTeacher(name).checkAbsenses());
-							else
+							if (school.checkTeacherAbsenses(name) != -1) {
+								absenses = school.checkTeacherAbsenses(name);
+								if (absenses >= 10 && absenses < 20) {
+									System.out.println("The salary was reduced %10. Number of absenses: " + absenses);
+								} else if (absenses >= 20) {
+									System.out.println("The salary was reduced %20. Number of absenses: " + absenses);
+								} else {
+									System.out.println("The salary was not reduced. Number of absenses: " + absenses);
+								}
+							} else
 								System.out.println("Teacher not found");
 							break;
-
 						case 5:
 							System.out.println("Name of the teacher");
 							sc.nextLine();
@@ -293,14 +309,14 @@ public class Interface {
 							else
 								System.out.println("Teacher not found");
 							break;
-							
+
 						case 8:
 							System.out.println("Name of the teacher");
 							sc.nextLine();
 							name = sc.nextLine();
 							school.getStudentsByTutor(name);
 							break;
-							
+
 						case 9:
 							System.out.println("Name of the teacher");
 							sc.nextLine();
@@ -392,12 +408,18 @@ public class Interface {
 							System.out.println("Name of the administrative");
 							sc.nextLine();
 							name = sc.nextLine();
-							if (school.findAdministrativeID(name) != -1)
-								System.out.println(school.getAdministrative(name).checkAbsenses());
-							else
+							if (school.checkAdministrativeAbsenses(name) != -1) {
+								absenses = school.checkAdministrativeAbsenses(name);
+								if (absenses >= 10 && absenses < 20) {
+									System.out.println("The salary was reduced %10. Number of absenses: " + absenses);
+								} else if (absenses >= 20) {
+									System.out.println("The salary was reduced %20. Number of absenses: " + absenses);
+								} else {
+									System.out.println("The salary was not reduced. Number of absenses: " + absenses);
+								}
+							} else
 								System.out.println("Administrative not found");
 							break;
-
 						case 5:
 							System.out.println("Name of the administrative");
 							sc.nextLine();
@@ -416,9 +438,9 @@ public class Interface {
 					}
 
 					break;
-				
+
 				case 0:
-					flag=false;
+					flag = false;
 					System.out.println("Bye!");
 					break;
 

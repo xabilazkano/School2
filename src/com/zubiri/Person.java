@@ -122,15 +122,17 @@ public class Person {
 	 * @return true if correct,false if not
 	 */
 	public boolean isValidDate(String date) {
-		String[] birthString = this.birthDate.split("/");
-		int[] birthInt = new int[3];
-		for (int i=0;i<birthString.length;i++) {
-			birthInt[i]=Integer.parseInt(birthString[i]);
+		if (date.length() == 10) {
+			String[] dateString = this.birthDate.split("/");
+			int[] dateInt = new int[3];
+			for (int i = 0; i < dateString.length; i++) {
+				dateInt[i] = Integer.parseInt(dateString[i]);
+			}
+			if (dateInt[0] <= 2019 && dateInt[1] <= 12 || dateInt[2] <= 31) {
+				return true;
+			}
 		}
-		if (birthInt[0]>2019||birthInt[1]>12||birthInt[2]>31) {
-			return false;
-		}
-		return true;
+		return false;
 	}
 	
 	/**

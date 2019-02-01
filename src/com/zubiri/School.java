@@ -1,4 +1,5 @@
 package com.zubiri;
+import java.util.Collections;
 
 import java.util.ArrayList;
 
@@ -233,6 +234,81 @@ public class School {
 		return administratives.get(index);
 	}
 
+	
+	/**
+	 * 
+	 * A method to check the number of absenses of a student. If she/he has made
+	 * more or equal than 10 and less than 20, his/her mark average will be reduced
+	 * %10. If she/he has made more or equal than 20, %20.
+	 * 
+	 * @return A message that says if the mark average was reduced, and if it was,
+	 *         it says how much.
+	 * 
+	 */
+	public int checkStudentAbsenses(String name) {
+		int index = findStudentID(name);
+		if (findStudentID(name) != -1) {
+			int absenses = students.get(index).getAbsenses();
+			double markAverage = students.get(index).getMarkAverage() * 0.9;
+			if (absenses >= 10 && absenses < 20) {
+				students.get(index).setMarkAverage(markAverage * 0.9);
+			} else if (absenses >= 20) {
+				students.get(index).setMarkAverage(markAverage * 0.8);
+			}
+			return absenses;
+		}
+		return -1;
+	}
+
+	/**
+	 * 
+	 * A method to check the number of absenses of a teacher. If she/he has made
+	 * more or equal than 10 and less than 20, his/her salary will be reduced %10.
+	 * If she/he has made more or equal than 20, %20.
+	 * 
+	 * @return A message that says if the salary was reduced, and if it was, it says
+	 *         how much.
+	 * 
+	 */
+	public int checkTeacherAbsenses(String name) {
+		int index = findTeacherID(name);
+		if (findTeacherID(name) != -1) {
+			int absenses = teachers.get(index).getAbsenses();
+			double salary = teachers.get(index).getSalary() * 0.9;
+			if (absenses >= 10 && absenses < 20) {
+				teachers.get(index).setSalary(salary * 0.9);
+			} else if (absenses >= 20) {
+				teachers.get(index).setSalary(salary * 0.8);
+			}
+			return absenses;
+		}
+		return -1;
+	}
+
+	/**
+	 * 
+	 * A method to check the number of absenses of an administrative. If she/he has
+	 * made more or equal than 10 and less than 20, his/her salary will be reduced
+	 * %10. If she/he has made more or equal than 20, %20.
+	 * 
+	 * @return A message that says if the salary was reduced, and if it was, it says
+	 *         how much.
+	 * 
+	 */
+	public int checkAdministrativeAbsenses(String name) {
+		int index = findAdministrativeID(name);
+		if (findAdministrativeID(name) != -1) {
+			int absenses = administratives.get(index).getAbsenses();
+			double salary = administratives.get(index).getSalary() * 0.9;
+			if (absenses >= 10 && absenses < 20) {
+				administratives.get(index).setSalary(salary * 0.9);
+			} else if (absenses >= 20) {
+				administratives.get(index).setSalary(salary * 0.8);
+			}
+			return absenses;
+		}
+		return -1;
+	}
 	/**
 	 * Prints the list of students of a tutor
 	 * 
@@ -284,5 +360,18 @@ public class School {
 		}
 	}
 	
+	public ArrayList<Student> orderStudents(){
+		
+		for (int i=0;i<students.size();i++) {
+			
+			for (int j=0;j<students.size();j++) {
+				if (students.get(i).getName().charAt(0)>students.get(j).getName().charAt(0)) {
+					Collections.swap(students, i, j);
+				}
+				
+			}
+		}
+		return this.students;
+	}
 	
 }
