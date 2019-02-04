@@ -33,6 +33,7 @@ public class Interface {
 					System.out.println("6.- Add a subject");
 					System.out.println("7.- Delete a subject");
 					System.out.println("8.- Order students by name");
+					System.out.println("9.- Get the information of a student");
 					if (sc.hasNextInt()) {
 						switch (sc.nextInt()) {
 						default:
@@ -166,6 +167,13 @@ public class Interface {
 						case 8:
 							school.orderStudents();
 							break;
+
+						case 9:
+							System.out.println("Name of the student");
+							sc.nextLine();
+							name = sc.nextLine();
+							System.out.println(school.getStudentInformation(name));
+							break;
 						}
 
 					} else {
@@ -185,6 +193,7 @@ public class Interface {
 					System.out.println("8.- Get students by tutor");
 					System.out.println("9.- Get students by teacher");
 					System.out.println("10.- Order teachers by name");
+					System.out.println("11.- Get the information of a teacher");
 
 					if (sc.hasNextInt()) {
 						switch (sc.nextInt()) {
@@ -338,6 +347,13 @@ public class Interface {
 							school.orderTeachers();
 							break;
 
+						case 11:
+							System.out.println("Name of the teacher");
+							sc.nextLine();
+							name = sc.nextLine();
+							System.out.println(school.getTeacherInformation(name));
+							break;
+
 						}
 
 					}
@@ -351,6 +367,7 @@ public class Interface {
 					System.out.println("4.- Check absenses");
 					System.out.println("5.- Add a language");
 					System.out.println("6.- Order the administratives by name");
+					System.out.println("7.- Get the information of an administrative");
 
 					if (sc.hasNextInt()) {
 						switch (sc.nextInt()) {
@@ -449,6 +466,13 @@ public class Interface {
 
 						case 6:
 							school.orderAdministratives();
+							break;
+
+						case 7:
+							System.out.println("Name of the administrative");
+							sc.nextLine();
+							name = sc.nextLine();
+							System.out.println(school.getAdministrativeInformation(name));
 							break;
 						}
 					}

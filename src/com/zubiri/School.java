@@ -425,5 +425,65 @@ public class School {
 		System.out.println("Scuccesfuly ordered");
 		return this.administratives;
 	}
+	
+	/**
+	 * Returns all the information of a student
+	 * @param name Name of the student
+	 * @return All the information
+	 */
+	public String getStudentInformation(String name) {
+		int index = findStudentID(name);
+		if (index != -1) {
+			String information ="Name: " + students.get(index).getName() + "\n" + "Birthdate: " + students.get(index).getBirthDate() + "\n"
+					+ "Telephone: " + students.get(index).getTelephone() + "\n" + "DNI: " + students.get(index).getDni() + "\n"
+					+ "Number of absenses: " + students.get(index).getAbsenses() + "\n" + "Mark average: " + students.get(index).getMarkAverage() + "\n"
+					+ "Classroom: " + students.get(index).getClassroom() + "\n Subjects: ";
+			for (int i=0;i<students.get(index).subjectCounter();i++) {
+				information=students.get(index).getSubject(i) + " ";
+			}
+			return information;
+		}
+		return "Student not found";
+	}
+
+	/**
+	 * Returns all the information of a teacher
+	 * @param name Name of the teacher
+	 * @return All the information
+	 */
+	public String getTeacherInformation(String name) {
+		int index = findTeacherID(name);
+		if (index != -1) {
+			String information = "Name: " + teachers.get(index).getName() + "\n" + "Birthdate: " + teachers.get(index).getBirthDate() + "\n"
+					+ "Telephone: " + teachers.get(index).getTelephone() + "\n" + "DNI: " + teachers.get(index).getDni() + "\n"
+					+ "Number of absenses: " + teachers.get(index).getAbsenses() + "\n" + "Joined date: " + teachers.get(index).getJoinedDate() + "\n"
+					+ "Salary: " + teachers.get(index).getSalary() + "\n" + "Tutor: " + teachers.get(index).getTutor() + "\n Subjects: ";
+			for (int i=0;i<teachers.get(index).subjectCounter();i++) {
+				information=teachers.get(index).getSubject(i) + " ";
+			}
+			return information;
+		}
+		return "Teacher not found";
+	}
+
+	/**
+	 * Returns all the information of an administrative
+	 * @param name Name of the administrative
+	 * @return All the information
+	 */
+	public String getAdministrativeInformation(String name) {
+		int index = findAdministrativeID(name);
+		if (index != -1) {
+			String information = "Name: " + administratives.get(index).getName() + "\n" + "Birthdate: " + administratives.get(index).getBirthDate() + "\n"
+					+ "Telephone: " + administratives.get(index).getTelephone() + "\n" + "DNI: " + administratives.get(index).getDni() + "\n"
+					+ "Number of absenses: " + administratives.get(index).getAbsenses() + "\n" + "Joined date: " + administratives.get(index).getJoinedDate() + "\n"
+					+ "Salary: " + administratives.get(index).getSalary() + "\n Languages: ";
+			for (int i=0;i<administratives.get(index).getLanguages().size();i++) {
+				information=administratives.get(index).getLanguages().get(i) + " ";
+			}
+			return information;
+		}
+		return "Administrative not found";
+	}
 
 }

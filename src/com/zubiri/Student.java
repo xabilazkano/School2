@@ -128,6 +128,22 @@ public class Student extends Person {
 	public void setStudentID(int newStudentID) {
 		this.studentID = newStudentID;
 	}
+	
+	/**
+	 * Gets the ArrayList of subjects
+	 * @return The ArrayList of subjects
+	 */
+	public ArrayList<String> getSubjects(){
+		return this.subjects;
+	}
+	
+	/**
+	 * Sets the new ArrayList of subjects
+	 * @param newSubjects new ArrayList of subjects
+	 */
+	public void setSubjects(ArrayList<String> newSubjects){
+		this.subjects = newSubjects;
+	}
 
 	/**
 	 * 
