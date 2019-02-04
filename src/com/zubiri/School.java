@@ -1,4 +1,5 @@
 package com.zubiri;
+
 import java.util.Collections;
 
 import java.util.ArrayList;
@@ -234,7 +235,6 @@ public class School {
 		return administratives.get(index);
 	}
 
-	
 	/**
 	 * 
 	 * A method to check the number of absenses of a student. If she/he has made
@@ -309,6 +309,7 @@ public class School {
 		}
 		return -1;
 	}
+
 	/**
 	 * Prints the list of students of a tutor
 	 * 
@@ -335,6 +336,10 @@ public class School {
 		}
 	}
 
+	/**
+	 * Prints all the teachers of a student
+	 * @param name Name of the student
+	 */
 	public void getTeachersByStudent(String name) {
 
 		for (int i = 0; i < getStudent(name).subjectCounter(); i++) {
@@ -347,7 +352,11 @@ public class School {
 			}
 		}
 	}
-	
+
+	/**
+	 * Prints all the students of a teacher
+	 * @param name Name of the teacher
+	 */
 	public void getStudentsByTeacher(String name) {
 		for (int i = 0; i < getTeacher(name).subjectCounter(); i++) {
 			for (int j = 0; j < students.size(); j++) {
@@ -359,19 +368,59 @@ public class School {
 			}
 		}
 	}
-	
-	public ArrayList<Student> orderStudents(){
-		
-		for (int i=0;i<students.size();i++) {
-			
-			for (int j=0;j<students.size();j++) {
-				if (students.get(i).getName().charAt(0)>students.get(j).getName().charAt(0)) {
+
+	/**
+	 * Returns the ArrayList of students ordered by name
+	 * @return Ordered ArrayList
+	 */
+	public ArrayList<Student> orderStudents() {
+
+		for (int i = 0; i < students.size(); i++) {
+
+			for (int j = 0; j < students.size(); j++) {
+				if (students.get(i).getName().charAt(0) > students.get(j).getName().charAt(0)) {
 					Collections.swap(students, i, j);
 				}
-				
+
 			}
 		}
 		return this.students;
 	}
-	
+
+	/**
+	 * Returns the ArrayList of teachers ordered by name
+	 * @return Ordered ArrayList
+	 */
+	public ArrayList<Teacher> orderTeachers() {
+
+		for (int i = 0; i < teachers.size(); i++) {
+
+			for (int j = 0; j < teachers.size(); j++) {
+				if (teachers.get(i).getName().charAt(0) > teachers.get(j).getName().charAt(0)) {
+					Collections.swap(teachers, i, j);
+				}
+
+			}
+		}
+		return this.teachers;
+	}
+
+	/**
+	 * Returns the ArrayList of administratives ordered by name
+	 * @return Ordered ArrayList
+	 */
+	public ArrayList<Administrative> orderAdministratives() {
+
+		for (int i = 0; i < administratives.size(); i++) {
+
+			for (int j = 0; j < administratives.size(); j++) {
+				if (administratives.get(i).getName().charAt(0) > administratives.get(j).getName().charAt(0)) {
+					Collections.swap(administratives, i, j);
+				}
+
+			}
+		}
+		return this.administratives;
+	}
+
 }
