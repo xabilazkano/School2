@@ -1,5 +1,6 @@
 import com.zubiri.*;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Interface {
 
@@ -31,6 +32,7 @@ public class Interface {
 					System.out.println("5.- Get teachers");
 					System.out.println("6.- Add a subject");
 					System.out.println("7.- Delete a subject");
+					System.out.println("8.- Order students by name");
 					if (sc.hasNextInt()) {
 						switch (sc.nextInt()) {
 						default:
@@ -160,6 +162,10 @@ public class Interface {
 							else
 								System.out.println("Student not found");
 							break;
+
+						case 8:
+							school.orderStudents();
+							break;
 						}
 
 					} else {
@@ -178,6 +184,7 @@ public class Interface {
 					System.out.println("7.- Delete a subject");
 					System.out.println("8.- Get students by tutor");
 					System.out.println("9.- Get students by teacher");
+					System.out.println("10.- Order teachers by name");
 
 					if (sc.hasNextInt()) {
 						switch (sc.nextInt()) {
@@ -327,6 +334,10 @@ public class Interface {
 								System.out.println("Teacher not found");
 							break;
 
+						case 10:
+							school.orderTeachers();
+							break;
+
 						}
 
 					}
@@ -339,6 +350,7 @@ public class Interface {
 					System.out.println("3.- Get the age of an administrative");
 					System.out.println("4.- Check absenses");
 					System.out.println("5.- Add a language");
+					System.out.println("6.- Order the administratives by name");
 
 					if (sc.hasNextInt()) {
 						switch (sc.nextInt()) {
@@ -433,6 +445,10 @@ public class Interface {
 									System.out.println("Language already added");
 							else
 								System.out.println("Administrative not found");
+							break;
+
+						case 6:
+							school.orderAdministratives();
 							break;
 						}
 					}

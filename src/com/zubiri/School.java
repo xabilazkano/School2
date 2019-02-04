@@ -384,6 +384,7 @@ public class School {
 
 			}
 		}
+		System.out.println("Scuccesfuly ordered");
 		return this.students;
 	}
 
@@ -402,6 +403,7 @@ public class School {
 
 			}
 		}
+		System.out.println("Scuccesfuly ordered");
 		return this.teachers;
 	}
 
@@ -420,6 +422,7 @@ public class School {
 
 			}
 		}
+		System.out.println("Scuccesfuly ordered");
 		return this.administratives;
 	}
 
