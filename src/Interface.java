@@ -165,8 +165,7 @@ public class Interface {
 							break;
 
 						case 8:
-							school.orderStudents();
-							break;
+						
 
 						case 9:
 							System.out.println("Name of the student");
