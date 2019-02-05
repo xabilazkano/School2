@@ -34,6 +34,7 @@ public class Interface {
 					System.out.println("7.- Delete a subject");
 					System.out.println("8.- Order students by name");
 					System.out.println("9.- Get the information of a student");
+					System.out.println("10.- Get the information of all the students");
 					if (sc.hasNextInt()) {
 						switch (sc.nextInt()) {
 						default:
@@ -165,7 +166,9 @@ public class Interface {
 							break;
 
 						case 8:
-							school.orderStudents();
+							Object orderedStudents = (Object)school.getStudents();
+							Object orderedPeople = (Object)school.orderPeople((ArrayList<Person>)orderedStudents);
+							school.setStudents((ArrayList<Student>)orderedPeople);
 							break;
 
 						case 9:
@@ -174,8 +177,11 @@ public class Interface {
 							name = sc.nextLine();
 							System.out.println(school.getStudentInformation(name));
 							break;
-						}
 
+						case 10:
+							System.out.println(school.getStudentsInformation());
+							break;
+						}
 					} else {
 						System.out.println("Please, enter a valid option");
 					}
@@ -194,6 +200,7 @@ public class Interface {
 					System.out.println("9.- Get students by teacher");
 					System.out.println("10.- Order teachers by name");
 					System.out.println("11.- Get the information of a teacher");
+					System.out.println("12.- Get the information of all the teachers");
 
 					if (sc.hasNextInt()) {
 						switch (sc.nextInt()) {
@@ -287,11 +294,16 @@ public class Interface {
 							System.out.println("Name of the teacher");
 							sc.nextLine();
 							name = sc.nextLine();
-							if (school.findTeacherID(name) != -1)
-								System.out.println(school.getTeacher(name).isTutor());
-							else
+							if (school.findTeacherID(name) != -1) {
+								String classroom = school.getTeacher(name).isTutor();
+								if (!classroom.equals("")) {
+									System.out.println("He/she is the tutor of the classroom" + classroom);
+								} else {
+									System.out.println("He/she is not a tutor");
+								}
+							} else {
 								System.out.println("Teacher not found");
-
+							}
 							break;
 
 						case 6:
@@ -344,7 +356,9 @@ public class Interface {
 							break;
 
 						case 10:
-							school.orderTeachers();
+							Object orderedTeachers = (Object)school.getTeachers();
+							Object orderedPeople = (Object)school.orderPeople((ArrayList<Person>)orderedTeachers);
+							school.setTeachers((ArrayList<Teacher>)orderedPeople);
 							break;
 
 						case 11:
@@ -352,6 +366,10 @@ public class Interface {
 							sc.nextLine();
 							name = sc.nextLine();
 							System.out.println(school.getTeacherInformation(name));
+							break;
+
+						case 12:
+							System.out.println(school.getTeachersInformation());
 							break;
 
 						}
@@ -368,6 +386,7 @@ public class Interface {
 					System.out.println("5.- Add a language");
 					System.out.println("6.- Order the administratives by name");
 					System.out.println("7.- Get the information of an administrative");
+					System.out.println("8.- Get the information of all the administratives");
 
 					if (sc.hasNextInt()) {
 						switch (sc.nextInt()) {
@@ -465,7 +484,9 @@ public class Interface {
 							break;
 
 						case 6:
-							school.orderAdministratives();
+							Object orderedAdministratives = (Object)school.getAdministratives();
+							Object orderedPeople = (Object)school.orderPeople((ArrayList<Person>)orderedAdministratives);
+							school.setAdministratives((ArrayList<Administrative>)orderedPeople);
 							break;
 
 						case 7:
@@ -473,6 +494,10 @@ public class Interface {
 							sc.nextLine();
 							name = sc.nextLine();
 							System.out.println(school.getAdministrativeInformation(name));
+							break;
+
+						case 8:
+							System.out.println(school.getAdministrativesInformation());
 							break;
 						}
 					}
