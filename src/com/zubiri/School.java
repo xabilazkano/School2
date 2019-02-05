@@ -326,7 +326,7 @@ public class School {
 						check = true;
 					}
 				}
-				if (check = false)
+				if (!check)
 					System.out.println("Students not found");
 			} else {
 				System.out.println("This teacher is not tutor");

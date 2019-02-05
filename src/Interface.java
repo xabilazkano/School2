@@ -489,6 +489,7 @@ public class Interface {
 				System.out.println("Please, enter a valid option");
 			}
 		}
+		sc.close();
 	}
 
 }
