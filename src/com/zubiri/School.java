@@ -371,32 +371,10 @@ public class School {
 		}
 	}
 
-	/**
-<<<<<<< HEAD
-	 * Returns the ArrayList of students ordered by name
-	 * 
-	 * @return Ordered ArrayList
-	 */
-	public ArrayList<Person> orderPeople(ArrayList<Person> newList) {
 
-		for (int i = 0; i < newList.size(); i++) {
-
-			for (int j = 0; j < newList.size(); j++) {
-				if (newList.get(i).getName().charAt(0) > newList.get(j).getName().charAt(0)) {
-					Collections.swap(newList, i, j);
-				}
-
-			}
-		}
-		System.out.println("Scuccesfuly ordered");
-		return newList;
-	}
 
 	/**
-	 * Returns the ArrayList of teachers ordered by name
-=======
 	 * Returns the ArrayList of people ordered by name
->>>>>>> 95e8adf5969f569b11a9d70a956e4d4df7362941
 	 * 
 	 * @return Ordered ArrayList
 	 */
@@ -412,7 +390,6 @@ public class School {
 	}
 
 	/**
-<<<<<<< HEAD
 	 * Returns the ArrayList of administratives ordered by name
 	 * 
 	 * @return Ordered ArrayList
@@ -433,8 +410,6 @@ public class School {
 	}
 
 	/**
-=======
->>>>>>> 95e8adf5969f569b11a9d70a956e4d4df7362941
 	 * Returns all the information of a student
 	 * 
 	 * @param name Name of the student

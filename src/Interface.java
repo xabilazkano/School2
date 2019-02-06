@@ -166,14 +166,12 @@ public class Interface {
 							break;
 
 						case 8:
-<<<<<<< HEAD
-						
-=======
+
 							Object orderedStudents = (Object)school.getStudents();
 							Object orderedPeople = (Object)school.orderPeople((ArrayList<Person>)orderedStudents);
 							school.setStudents((ArrayList<Student>)orderedPeople);
 							break;
->>>>>>> 95e8adf5969f569b11a9d70a956e4d4df7362941
+
 
 						case 9:
 							System.out.println("Name of the student");
