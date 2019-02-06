@@ -113,16 +113,16 @@ public class Teacher extends Worker {
 
 	/**
 	 * 
-	 * A method which tells us if the teacher is a tutor or not
+	 * A method which tells us if the teacher if the teacher is a tutor or not. If he/she is, it returns his/her classroom. Otherwise, it returns an empty string
 	 * 
-	 * @return If he/she is a tutor, true. Otherwise, false.
+	 * @return If he/she is a tutor, his/her classroom. Otherwise, empty.
 	 * 
 	 */
 	public String isTutor() {
 		if (!this.tutor.equals("") && !this.tutor.equals("no")) {
-			return "Tutor of " + this.tutor;
+			return this.tutor;
 		}
-		return "He/she is not tutor";
+		return "";
 	}
 
 	/**

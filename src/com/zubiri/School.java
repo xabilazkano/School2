@@ -326,7 +326,7 @@ public class School {
 						check = true;
 					}
 				}
-				if (check = false)
+				if (!check)
 					System.out.println("Students not found");
 			} else {
 				System.out.println("This teacher is not tutor");
@@ -372,6 +372,7 @@ public class School {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns the ArrayList of students ordered by name
 	 * 
 	 * @return Ordered ArrayList
@@ -393,25 +394,25 @@ public class School {
 
 	/**
 	 * Returns the ArrayList of teachers ordered by name
+=======
+	 * Returns the ArrayList of people ordered by name
+>>>>>>> 95e8adf5969f569b11a9d70a956e4d4df7362941
 	 * 
 	 * @return Ordered ArrayList
 	 */
-	public ArrayList<Teacher> orderTeachers() {
-
-		for (int i = 0; i < teachers.size(); i++) {
-
-			for (int j = 0; j < teachers.size(); j++) {
-				if (teachers.get(i).getName().charAt(0) > teachers.get(j).getName().charAt(0)) {
-					Collections.swap(teachers, i, j);
+	public ArrayList<Person> orderPeople(ArrayList<Person> orderedPeople) {
+		for (int i = 0; i < orderedPeople.size(); i++) {
+			for (int j = 0; j < orderedPeople.size(); j++) {
+				if (orderedPeople.get(i).getName().charAt(0) < orderedPeople.get(j).getName().charAt(0)) {
+					Collections.swap(orderedPeople, i, j);
 				}
-
 			}
 		}
-		System.out.println("Scuccesfuly ordered");
-		return this.teachers;
+		return orderedPeople;
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns the ArrayList of administratives ordered by name
 	 * 
 	 * @return Ordered ArrayList
@@ -432,6 +433,8 @@ public class School {
 	}
 
 	/**
+=======
+>>>>>>> 95e8adf5969f569b11a9d70a956e4d4df7362941
 	 * Returns all the information of a student
 	 * 
 	 * @param name Name of the student
@@ -499,4 +502,69 @@ public class School {
 		return "Administrative not found";
 	}
 
+	/**
+	 * Returns all the information of all students
+	 * 
+	 * @return All the information of all the students
+	 */
+
+	public String getStudentsInformation() {
+		String information = "";
+		for (int i = 0; i < students.size(); i++) {
+			information = information + "Name: " + students.get(i).getName() + "\n" + "Birthdate: "
+					+ students.get(i).getBirthDate() + "\n" + "Telephone: " + students.get(i).getTelephone() + "\n"
+					+ "DNI: " + students.get(i).getDni() + "\n" + "Number of absenses: " + students.get(i).getAbsenses()
+					+ "\n" + "Mark average: " + students.get(i).getMarkAverage() + "\n" + "Classroom: "
+					+ students.get(i).getClassroom() + "\n Subjects: ";
+			for (int j = 0; j < students.get(i).subjectCounter(); j++) {
+				information = students.get(i).getSubject(j) + " ";
+			}
+			information = information + "\n\n";
+		}
+		return information;
+	}
+
+	/**
+	 * Returns all the information of all teachers
+	 * 
+	 * @return All the information of all the teachers
+	 */
+
+	public String getTeachersInformation() {
+		String information = "";
+		for (int i = 0; i < teachers.size(); i++) {
+			information = information + "Name: " + teachers.get(i).getName() + "\n" + "Birthdate: "
+					+ teachers.get(i).getBirthDate() + "\n" + "Telephone: " + teachers.get(i).getTelephone() + "\n"
+					+ "DNI: " + teachers.get(i).getDni() + "\n" + "Number of absenses: " + teachers.get(i).getAbsenses()
+					+ "\n" + "Salary: " + teachers.get(i).getSalary() + "\n" + "Tutor: " + teachers.get(i).getTutor()
+					+ "\n Subjects: ";
+			for (int j = 0; i < teachers.get(i).subjectCounter(); j++) {
+				information = teachers.get(i).getSubject(j) + " ";
+			}
+			information = information + "\n\n";
+		}
+		return information;
+	}
+
+	/**
+	 * Returns all the information of all administratives
+	 * 
+	 * @return All the information of all the administratives
+	 */
+	public String getAdministrativesInformation() {
+		String information = "";
+		for (int i = 0; i < administratives.size(); i++) {
+			information = information + "Name: " + administratives.get(i).getName() + "\n" + "Birthdate: "
+					+ administratives.get(i).getBirthDate() + "\n" + "Telephone: "
+					+ administratives.get(i).getTelephone() + "\n" + "DNI: " + administratives.get(i).getDni() + "\n"
+					+ "Number of absenses: " + administratives.get(i).getAbsenses() + "\n" + "Joined date: "
+					+ administratives.get(i).getJoinedDate() + "\n" + "Salary: " + administratives.get(i).getSalary()
+					+ "\n Languages: ";
+			for (int j = 0; j < administratives.get(i).getLanguages().size(); j++) {
+				information = administratives.get(i).getLanguages().get(j) + " ";
+			}
+			information = information + "\n\n";
+		}
+		return information;
+	}
 }
